@@ -1,0 +1,40 @@
+{
+  "name": "memory-system",
+  "version": "1.0.0",
+  "description": "SQLite + Directus memory system for OpenClaw agent",
+  "main": "query-api.js",
+  "type": "commonjs",
+  "scripts": {
+    "setup": "node setup.js",
+    "init": "node sync-service.js --init",
+    "sync": "node sync-service.js --sync",
+    "watch": "node sync-service.js --watch",
+    "api": "node query-api.js",
+    "api:dev": "PORT=3333 node query-api.js",
+    "start": "concurrently \"npm run watch\" \"npm run api:dev\"",
+    "directus:setup": "npx create-directus-project directus-project",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "memory",
+    "sqlite",
+    "directus",
+    "search",
+    "agent",
+    "conversations"
+  ],
+  "author": "Matt Minor",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite3": "^5.1.7",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "chokidar": "^3.5.3"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
